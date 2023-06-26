@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Página de Produtos</title>
+  <title>Página de Alunos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,16 +24,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Detalhes do Produto</h4>
+        <h4 class="modal-title">Detalhes</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <p>ID: <span id="productId"></span></p>
-        <p>Nome: <span id="productName"></span></p>
-        <p>Valor: <span id="productValue"></span></p>
+        <p>ID: <span id="alunoId"></span></p>
+        <p>Nome: <span id="alunoName"></span></p>
+        <p>Sobrenome: <span id="alunoSobrenome"></span>/span></p>
+        <p>Email: <span id="emailEmail"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Esquecer</button>
       </div>
     </div>
   </div>
@@ -41,9 +42,8 @@
 
 
 <div class="container">
-  <h2>Lista de Produtos</h2>
+  <h2>Lista de Alunoss</h2>
   <div class="table-responsive">
-    <!-- Botão para adicionar um novo produto -->
     <a href="inclusao.php" class="btn btn-primary">
       <i class="fa fa-plus"></i> Incluir
     </a>
@@ -63,7 +63,7 @@
         <?php
         include 'conexao.php';
 
-        $sql = "SELECT * FROM produto";
+        $sql = "SELECT * FROM aluno";
 
         $result = $conn->query($sql);
         if ($conn->error) {
@@ -93,22 +93,22 @@
 $(document).ready(function(){
    $(".delete-btn").click(function(e){
     e.preventDefault();
-        var productId = $(this).data('id'); 
-        var userConfirmation = confirm('Tem certeza de que deseja excluir este produto?');
+        var alunoId = $(this).data('id'); 
+        var userConfirmation = confirm('Tem certeza de que deseja fazer esta exclusão?');
     if(userConfirmation){
-      window.location.href = "excluir.php?id=" + productId;
+      window.location.href = "excluir.php?id=" + alunoId;
     }
   });
 
   $(".fa-eye").click(function(){
     var $row = $(this).closest("tr");
-    var productId = $row.find("td:nth-child(1)").text();
-    var productName = $row.find("td:nth-child(2)").text();
-    var productValue = $row.find("td:nth-child(3)").text();
+    var alunoId = $row.find("td:nth-child(1)").text();
+    var alunoName = $row.find("td:nth-child(2)").text();
+    var alunoValue = $row.find("td:nth-child(3)").text();
 
-    $("#productId").text(productId);
-    $("#productName").text(productName);
-    $("#productValue").text(productValue);
+    $("#alunoId").text(alunoId);
+    $("#alunoName").text(alunoName);
+    $("#alunoValue").text(alunoValue);
 
     $("#modal-info").modal();
   });
