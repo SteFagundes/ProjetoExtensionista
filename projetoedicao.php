@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
     exit;
   }
 
-  $sql = "SELECT nome, valor FROM produto WHERE id = $id";
+  $sql = "SELECT nome, valor FROM aluno WHERE id = $id";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
     $nome = $row['nome'];
     $valor = $row['valor'];
   } else {
-    echo "<p>Erro: Item não encontrado.</p>";
+    echo "<p>Erro: Aluno não encontrado.</p>";
     exit;
   }
 
