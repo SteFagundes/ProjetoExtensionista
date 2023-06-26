@@ -8,7 +8,7 @@ if (isset($_POST['nome'], $_POST['valor'], $_POST['operacao'])) {
 
     switch ($operacao) {
         case 'inserir':
-            $sql = "INSERT INTO produto (nome, valor) VALUES (?, ?)";
+            $sql = "INSERT INTO aluno (nome, valor) VALUES (?, ?)";
 
             if ($stmt = $conn->prepare($sql)) {
                 $stmt->bind_param("ss", $nome, $valor);
@@ -42,7 +42,7 @@ if (isset($_POST['nome'], $_POST['valor'], $_POST['operacao'])) {
                     echo "Erro: " . $conn->error;
                 }
             } else {
-                echo "ID do produto não fornecido.";
+                echo "ID do aluno não existe.";
             }
             break;
         default:
